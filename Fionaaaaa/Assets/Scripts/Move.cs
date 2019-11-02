@@ -11,6 +11,8 @@ public class Move : MonoBehaviour
     public float speed = 0.5f;
     public float minimumDistanceToValidateDestination = 2;
 
+    private GameObject interactableObject;
+
     private void Awake()
     {
         navMesh = GetComponent<NavMeshAgent>();
@@ -22,20 +24,7 @@ public class Move : MonoBehaviour
         navMesh.speed = speed;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            navMesh.destination  = getMouseClickPosition();
-
-        }
-        
-    }
-
-
-    private Vector3 getMouseClickPosition()
+    public void getMouseClickPosition()
     {
         Vector3 pos = new Vector3();
 
@@ -43,12 +32,31 @@ public class Move : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out hit, 500))
         {
+            if(hit.collider.tag == "interactable")
+            {
+                interactableObject = hit.collider.gameObject;
+            }
+            else
+            {
+                interactableObject = null;
+            }
             pos = hit.point;
         }
 
-        return pos;
+        navMesh.destination = pos;
+
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == interactableObject)
+        {
+            MemoryManager.instance.BeginMemory(interactableObject.GetComponent<Interactable>().settings);
+           // DialogueVisual.instance. interactableObject.GetComponent<In>
+            Debug.Log("PATATE DOUCE");
+        }
+    }
 
 
     private void OnValidate()
