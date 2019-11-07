@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class Dialogable : MonoBehaviour
+{
+    public DialogueSettings settings;
 
-public enum GameState { inDialogue, inChoice, inMemory, free};
-
-
+}

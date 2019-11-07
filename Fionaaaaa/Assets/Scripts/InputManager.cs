@@ -39,7 +39,7 @@ public class InputManager : MonoBehaviour
         if(GameManager.instance.gameState == GameState.inMemory)
             if (Input.GetMouseButtonDown(0))
             {
-                MemoryManager.instance.OnClickDialogue();
+                MemoryManager.instance.OnClickMemory();
             }
 
     }

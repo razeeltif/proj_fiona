@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
 
     public DialogueSettings settings;
 
+    int indexChoice = -1;
     int state = 0;
 
 
@@ -27,24 +28,13 @@ public class DialogueManager : MonoBehaviour
 
     public void OnClickDialogue()
     {
-        if(state == 0)
-        {
-            BeginDialogue(settings);
-            state++;
-        }
 
-        else if(state == 1)
+        if (state == 0)
         {
-            DialogueVisual.instance.startNewSentence(true, settings.dialogueCalme[0].reponseNola);
+            DialogueVisual.instance.startNewSentence(false, settings.dialogueCalme[indexChoice].reactionSol);
             state++;
         }
-
-        else if (state == 2)
-        {
-            DialogueVisual.instance.startNewSentence(false, settings.dialogueCalme[0].reactionSol);
-            state++;
-        }
-        else if (state == 3)
+        else if (state == 1)
         {
             EndDialogue();
         }
@@ -53,13 +43,23 @@ public class DialogueManager : MonoBehaviour
 
     public void BeginDialogue(DialogueSettings settings)
     {
-        GameManager.instance.gameState = GameState.inDialogue;
+        GameManager.instance.gameState = GameState.inChoice;
         this.settings = settings;
         DialogueVisual.instance.gameObject.SetActive(true);
 
         DialogueVisual.instance.startNewSentence(false, settings.phraseSol);
+
+        DialogueVisual.instance.CreateChoices(settings.dialogueCalme);
     }
 
+
+    public void ChoiceMade(int indexChoosenButton)
+    {
+        indexChoice = indexChoosenButton;
+        DialogueVisual.instance.startNewSentence(true, settings.dialogueCalme[indexChoice].reponseNola);
+        DialogueVisual.instance.EndChoice();
+        GameManager.instance.gameState = GameState.inDialogue;
+    }
 
 
 
@@ -69,6 +69,7 @@ public class DialogueManager : MonoBehaviour
         DialogueVisual.instance.EndDialogue();
         DialogueVisual.instance.gameObject.SetActive(false);
         state = 0;
+        indexChoice = -1;
         GameManager.instance.gameState = GameState.free;
     }
 }

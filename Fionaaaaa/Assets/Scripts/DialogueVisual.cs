@@ -13,7 +13,9 @@ public class DialogueVisual : MonoBehaviour
     public DialogueVisualSettings settings;
     public GameObject NolaTextPrefab;
     public GameObject SolTextPrefab;
+    public GameObject buttonPrefab;
 
+    private List<GameObject> listButtons = new List<GameObject>();
     List<GameObject> sentences = new List<GameObject>();
 
     private Coroutine typeCoroutine;
@@ -34,17 +36,6 @@ public class DialogueVisual : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void EndDialogue()
     {
@@ -101,6 +92,45 @@ public class DialogueVisual : MonoBehaviour
 
         savedSentence = sentence;
     }
+
+    public void CreateChoices(List<reponse> listReponse)
+    {
+        for (int i = 0; i < listReponse.Count; i++)
+        {
+            CreateButton(i, listReponse[i].reponseNola, 135 - 50 * i);
+        }
+    }
+
+    private void CreateButton(int indexValue, string textValue, float offset)
+    {
+
+        GameObject buttonInstance = Instantiate(buttonPrefab, this.transform);
+
+
+        Vector3 pos = buttonPrefab.GetComponent<RectTransform>().anchoredPosition3D;
+
+        buttonInstance.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(pos.x, offset, pos.z);
+
+        buttonInstance.GetComponent<Button>().onClick.AddListener(delegate { ChoiceButtonHandler(indexValue); });
+        buttonInstance.GetComponentInChildren<TextMeshProUGUI>().text = textValue;
+
+        listButtons.Add(buttonInstance);
+    }
+
+    public void ChoiceButtonHandler(int index)
+    {
+        DialogueManager.instance.ChoiceMade(index);
+    }
+
+    public void EndChoice()
+    {
+        foreach (GameObject go in listButtons)
+        {
+            Destroy(go);
+        }
+        listButtons.Clear();
+    }
+
 
     IEnumerator TypeSentence(TextMeshProUGUI dialogueText, string sentence)
     {

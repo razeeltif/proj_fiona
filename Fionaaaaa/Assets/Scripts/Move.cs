@@ -12,6 +12,7 @@ public class Move : MonoBehaviour
     public float minimumDistanceToValidateDestination = 2;
 
     private GameObject interactableObject;
+    private GameObject dialogableObject;
 
     private void Awake()
     {
@@ -36,9 +37,14 @@ public class Move : MonoBehaviour
             {
                 interactableObject = hit.collider.gameObject;
             }
+            else if(hit.collider.tag == "dialogable")
+            {
+                dialogableObject = hit.collider.gameObject;
+            }
             else
             {
                 interactableObject = null;
+                dialogableObject = null;
             }
             pos = hit.point;
         }
@@ -53,8 +59,17 @@ public class Move : MonoBehaviour
         if (other.gameObject == interactableObject)
         {
             MemoryManager.instance.BeginMemory(interactableObject.GetComponent<Interactable>().settings);
-           // DialogueVisual.instance. interactableObject.GetComponent<In>
-            Debug.Log("PATATE DOUCE");
+            navMesh.destination = this.transform.position;
+            interactableObject = null;
+            dialogableObject = null;
+        }
+
+        if(other.gameObject == dialogableObject)
+        {
+            DialogueManager.instance.BeginDialogue(dialogableObject.GetComponent<Dialogable>().settings);
+            navMesh.destination = this.transform.position;
+            interactableObject = null;
+            dialogableObject = null;
         }
     }
 

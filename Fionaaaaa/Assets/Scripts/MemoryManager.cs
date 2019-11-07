@@ -24,7 +24,7 @@ public class MemoryManager : MonoBehaviour
     }
 
 
-    public void OnClickDialogue()
+    public void OnClickMemory()
     {
         if(state < settings.memoireCalme.memories.Length)
         {
