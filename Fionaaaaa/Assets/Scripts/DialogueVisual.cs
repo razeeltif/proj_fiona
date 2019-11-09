@@ -45,6 +45,8 @@ public class DialogueVisual : MonoBehaviour
             Destroy(go);
         }
         sentences.Clear();
+        StopCoroutine(typeCoroutine);
+        flagTypeCoroutine = false;
 
     }
 
