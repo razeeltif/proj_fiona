@@ -5,4 +5,6 @@ using UnityEngine;
 
 public enum GameState { inDialogue, inChoice, inMemory, free};
 
+public enum HumorState { calme, colerique, anxieuse, vide };
+
 

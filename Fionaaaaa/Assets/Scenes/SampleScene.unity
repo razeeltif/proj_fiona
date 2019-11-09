@@ -487,6 +487,7 @@ GameObject:
   - component: {fileID: 261234094}
   - component: {fileID: 261234095}
   - component: {fileID: 261234096}
+  - component: {fileID: 261234097}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -507,6 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 3
+  numberOfDaysPassed: 0
 --- !u!4 &261234092
 Transform:
   m_ObjectHideFlags: 0
@@ -572,6 +574,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac77b248844b9494392e1d7f16b7ebd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &261234097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261234090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9108bea9e15f340988a3a161ccab5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingCalme: {fileID: 11400000, guid: 9b50c0a223a6c6642944a2591223623c, type: 2}
+  settingColere: {fileID: 11400000, guid: e19668a3a5bcd1041ae9156af68ef3e7, type: 2}
+  settingAnxieuse: {fileID: 11400000, guid: c4aec3ac83f156844908cc34567ec836, type: 2}
+  humeursScriptees: []
+  actualHumor: 3
 --- !u!1 &290145813
 GameObject:
   m_ObjectHideFlags: 0

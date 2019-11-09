@@ -6,10 +6,12 @@ public class GameManager : MonoBehaviour
 {
 
     static public GameManager instance;
+
     public GameState gameState = GameState.free;
 
     GameObject interactableMOuseOverGameObject;
 
+    public int numberOfDaysPassed = 0;
 
     private void Awake()
     {
