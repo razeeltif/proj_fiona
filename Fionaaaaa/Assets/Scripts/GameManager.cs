@@ -38,10 +38,14 @@ public class GameManager : MonoBehaviour
             if(result != interactableMOuseOverGameObject)
             {
                 if( interactableMOuseOverGameObject != null)
-                    interactableMOuseOverGameObject.layer = LayerMask.NameToLayer("Default");
+                    changeLayerForAllChildren(interactableMOuseOverGameObject, "Default");
+                //interactableMOuseOverGameObject.layer = LayerMask.NameToLayer("Default");
 
                 interactableMOuseOverGameObject = result;
-                interactableMOuseOverGameObject.layer = LayerMask.NameToLayer("outline");
+
+                changeLayerForAllChildren(interactableMOuseOverGameObject, "outline");
+                //interactableMOuseOverGameObject.layer = LayerMask.NameToLayer("outline");
+
             }
 
         }
@@ -49,7 +53,8 @@ public class GameManager : MonoBehaviour
         {
             if(interactableMOuseOverGameObject != null)
             {
-                interactableMOuseOverGameObject.layer = LayerMask.NameToLayer("Default");
+                changeLayerForAllChildren(interactableMOuseOverGameObject, "Default");
+                //interactableMOuseOverGameObject.layer = LayerMask.NameToLayer("Default");
                 interactableMOuseOverGameObject = null;
             }
         }
@@ -61,12 +66,22 @@ public class GameManager : MonoBehaviour
 
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 500) && hit.collider.tag == "interactable")
+        if (Physics.Raycast(ray, out hit, 500) && (hit.collider.tag == "interactable" || hit.collider.tag == "dialogable"))
         {
             return hit.collider.gameObject;
         }
         return null;
     }
 
+    private void changeLayerForAllChildren(GameObject obj, string layerName)
+    {
+        obj.layer = LayerMask.NameToLayer(layerName);
+        foreach(Transform child in obj.GetComponentsInChildren<Transform>())
+        {
+            if(child != obj.transform)
+                changeLayerForAllChildren(child.gameObject, layerName);
+        }
+        
+    }
 
 }
