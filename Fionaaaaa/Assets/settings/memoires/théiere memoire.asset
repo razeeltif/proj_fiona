@@ -19,8 +19,11 @@ MonoBehaviour:
     - j'me fait chier
     impactEnergie: 0
   memoireAnxieuse:
-    memories: []
+    memories:
+    - "Pourquoi cette theiere est l\xE0 ?"
+    - Elle me fait peur ;(
     impactEnergie: 0
   memoireColerique:
-    memories: []
+    memories:
+    - NIQUE TOI PUTAIN DE THEIERE
     impactEnergie: 0
