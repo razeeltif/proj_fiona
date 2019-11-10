@@ -64,6 +64,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        GameManager.instance.addEnergyForNola(getDialogueFromHumor()[indexChoice].impactEnergie);
         DialogueVisual.instance.EndDialogue();
         DialogueVisual.instance.gameObject.SetActive(false);
         state = 0;

@@ -81,4 +81,4 @@ MonoBehaviour:
     value: 7
   color:
     overrideState: 1
-    value: {r: 1, g: 0.93989503, b: 0, a: 1}
+    value: {r: 0, g: 0.06844139, b: 1, a: 1}

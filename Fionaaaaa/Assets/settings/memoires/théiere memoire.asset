@@ -17,13 +17,13 @@ MonoBehaviour:
     - "c'est une th\xE9iere"
     - "une putain de th\xE9iere"
     - j'me fait chier
-    impactEnergie: 0
+    impactEnergie: -1
   memoireAnxieuse:
     memories:
     - "Pourquoi cette theiere est l\xE0 ?"
     - Elle me fait peur ;(
-    impactEnergie: 0
+    impactEnergie: -3
   memoireColerique:
     memories:
     - NIQUE TOI PUTAIN DE THEIERE
-    impactEnergie: 0
+    impactEnergie: 5

@@ -17,8 +17,12 @@ MonoBehaviour:
     - C'est moche
     impactEnergie: 0
   memoireAnxieuse:
-    memories: []
+    memories:
+    - c'est toujours aussi moche
     impactEnergie: 0
   memoireColerique:
-    memories: []
+    memories:
+    - '...'
+    - '...'
+    - cheh
     impactEnergie: 0

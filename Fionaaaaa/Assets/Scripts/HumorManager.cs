@@ -84,6 +84,48 @@ public class HumorManager : MonoBehaviour
 
     }
 
+    public int getInitialHumorEnergy()
+    {
+        switch (actualHumor)
+        {
+            case HumorState.anxieuse:
+                return settingAnxieuse.energieDeDepart;
+
+            case HumorState.calme:
+                return settingCalme.energieDeDepart;
+
+            case HumorState.colerique:
+                return settingColere.energieDeDepart;
+
+            default:
+                Debug.LogWarning("actualHumor not initialized");
+                return settingCalme.energieDeDepart;
+
+        }
+    }
+
+    public float getTauxReussite()
+    {
+        switch (actualHumor)
+        {
+            case HumorState.anxieuse:
+                return settingAnxieuse.tauxReussite;
+
+            case HumorState.calme:
+                return settingCalme.tauxReussite;
+
+            case HumorState.colerique:
+                return settingColere.tauxReussite;
+
+            default:
+                Debug.LogWarning("actualHumor not initialized");
+                return settingCalme.tauxReussite;
+
+        }
+    }
+
+
+
     private List<humeurChance> createListPossibilities()
     {
         humeurChance anxieuse = new humeurChance(0, HumorState.anxieuse);

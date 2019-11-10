@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
 
     static public GameManager instance;
 
+    [HideInInspector]
     public GameState gameState = GameState.free;
+    public Text energieUI;
 
     GameObject interactableMOuseOverGameObject;
 
     public int numberOfDaysPassed = 0;
+
+    private int energyNola = 0;
 
     private void Awake()
     {
@@ -28,6 +33,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         DialogueVisual.instance.gameObject.SetActive(false);
+        HumorManager.instance.ChangeHumor();
+        addEnergyForNola(HumorManager.instance.getInitialHumorEnergy());
     }
 
 
@@ -41,12 +48,10 @@ public class GameManager : MonoBehaviour
             {
                 if( interactableMOuseOverGameObject != null)
                     changeLayerForAllChildren(interactableMOuseOverGameObject, "Default");
-                //interactableMOuseOverGameObject.layer = LayerMask.NameToLayer("Default");
 
                 interactableMOuseOverGameObject = result;
 
                 changeLayerForAllChildren(interactableMOuseOverGameObject, "outline");
-                //interactableMOuseOverGameObject.layer = LayerMask.NameToLayer("outline");
 
             }
 
@@ -56,12 +61,27 @@ public class GameManager : MonoBehaviour
             if(interactableMOuseOverGameObject != null)
             {
                 changeLayerForAllChildren(interactableMOuseOverGameObject, "Default");
-                //interactableMOuseOverGameObject.layer = LayerMask.NameToLayer("Default");
                 interactableMOuseOverGameObject = null;
             }
         }
 
     }
+
+    public void addEnergyForNola(int addEnergy)
+    {
+        energyNola += addEnergy;
+        energieUI.text = "energy : " + energyNola;
+        if(energyNola <= 0)
+        {
+            DayFailed();
+        }
+    }
+
+    private void DayFailed()
+    {
+        Debug.Log("Nola is exhausted, end of the day");
+    }
+
 
     private GameObject getInteractableGameObjectMouseOver()
     {

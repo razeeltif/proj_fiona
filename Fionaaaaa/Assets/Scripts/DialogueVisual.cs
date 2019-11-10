@@ -14,6 +14,7 @@ public class DialogueVisual : MonoBehaviour
     public GameObject NolaTextPrefab;
     public GameObject SolTextPrefab;
     public GameObject buttonPrefab;
+    public GameObject choiceCanvas;
 
     private List<GameObject> listButtons = new List<GameObject>();
     List<GameObject> sentences = new List<GameObject>();
@@ -34,6 +35,11 @@ public class DialogueVisual : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    public void Start()
+    {
+        choiceCanvas.SetActive(false);
     }
 
 
@@ -97,6 +103,7 @@ public class DialogueVisual : MonoBehaviour
 
     public void CreateChoices(List<reponse> listReponse)
     {
+        choiceCanvas.SetActive(true);
         for (int i = 0; i < listReponse.Count; i++)
         {
             CreateButton(i, listReponse[i].reponseNola, 135 - 50 * i);
@@ -131,6 +138,7 @@ public class DialogueVisual : MonoBehaviour
             Destroy(go);
         }
         listButtons.Clear();
+        choiceCanvas.SetActive(false);
     }
 
 
