@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HumorManager : MonoBehaviour
 {
     static public HumorManager instance;
+
+    public Text UIHumeur;
 
     public HumorSettings settingCalme;
     public HumorSettings settingColere;
@@ -37,7 +40,7 @@ public class HumorManager : MonoBehaviour
             if(script.jour == GameManager.instance.numberOfDaysPassed)
             {
                 historiqueHumeur.Add(script.humeur);
-                actualHumor = script.humeur;
+                setActualHumor(script.humeur);
                 return;
             }
         }
@@ -77,7 +80,7 @@ public class HumorManager : MonoBehaviour
             if(random > possibilities[i].chance)
             {
                 historiqueHumeur.Add(possibilities[i].humeur);
-                actualHumor = possibilities[i].humeur;
+                setActualHumor(possibilities[i].humeur);
                 return;
             }
         }
@@ -124,6 +127,12 @@ public class HumorManager : MonoBehaviour
         }
     }
 
+    private void setActualHumor(HumorState state)
+    {
+        actualHumor = state;
+        UpdateUI();
+    }
+
 
 
     private List<humeurChance> createListPossibilities()
@@ -152,6 +161,28 @@ public class HumorManager : MonoBehaviour
 
     }
 
+    private void UpdateUI()
+    {
+        switch (actualHumor)
+        {
+            case HumorState.anxieuse:
+                UIHumeur.text = "Humeur : anxieuse";
+                break;
+
+            case HumorState.calme:
+                UIHumeur.text = "Humeur : calme";
+                break;
+
+            case HumorState.colerique:
+                UIHumeur.text = "Humeur : colérique";
+                break;
+
+            default:
+                UIHumeur.text = "Humeur : bug";
+                break;
+        }
+    }
+
 
     [System.Serializable]
     public struct humeurScriptee
@@ -170,6 +201,11 @@ public class HumorManager : MonoBehaviour
             this.chance = chance;
             this.humeur = humeur;
         }
+    }
+
+    private void OnValidate()
+    {
+        UpdateUI();
     }
 
 }
