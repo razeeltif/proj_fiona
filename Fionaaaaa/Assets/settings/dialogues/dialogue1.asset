@@ -22,10 +22,16 @@ MonoBehaviour:
     reactionSol: BONJOUR
     impactEnergie: 5
   dialogueAnxieuse:
+  - reponseNola: AAAHHH
+    reactionSol: '*arret cardiaque*'
+    impactEnergie: 2
+  - reponseNola: la vie est-elle une blessure ?
+    reactionSol: tg
+    impactEnergie: 3
+  dialogueColerique:
   - reponseNola: tg
     reactionSol: :(
     impactEnergie: -1
   - reponseNola: j'veux faire dodo putain
     reactionSol: et moi manger des anchoix en salade
     impactEnergie: -10
-  dialogueColerique: []

@@ -6,7 +6,7 @@ public class DialogueManager : MonoBehaviour
 {
     static public DialogueManager instance;
 
-    public DialogueSettings settings;
+    private DialogueSettings settings;
 
     int indexChoice = -1;
     int state = 0;
@@ -31,7 +31,7 @@ public class DialogueManager : MonoBehaviour
 
         if (state == 0)
         {
-            DialogueVisual.instance.startNewSentence(false, settings.dialogueCalme[indexChoice].reactionSol);
+            DialogueVisual.instance.startNewSentence(false, getDialogueFromHumor()[indexChoice].reactionSol);
             state++;
         }
         else if (state == 1)
@@ -49,19 +49,17 @@ public class DialogueManager : MonoBehaviour
 
         DialogueVisual.instance.startNewSentence(false, settings.phraseSol);
 
-        DialogueVisual.instance.CreateChoices(settings.dialogueCalme);
+        DialogueVisual.instance.CreateChoices(getDialogueFromHumor());
     }
 
 
     public void ChoiceMade(int indexChoosenButton)
     {
         indexChoice = indexChoosenButton;
-        DialogueVisual.instance.startNewSentence(true, settings.dialogueCalme[indexChoice].reponseNola);
+        DialogueVisual.instance.startNewSentence(true, getDialogueFromHumor()[indexChoice].reponseNola);
         DialogueVisual.instance.EndChoice();
         GameManager.instance.gameState = GameState.inDialogue;
     }
-
-
 
 
     public void EndDialogue()
@@ -71,5 +69,25 @@ public class DialogueManager : MonoBehaviour
         state = 0;
         indexChoice = -1;
         GameManager.instance.gameState = GameState.free;
+    }
+
+    List<reponse> getDialogueFromHumor()
+    {
+
+        switch (HumorManager.instance.actualHumor)
+        {
+            case HumorState.anxieuse:
+                return settings.dialogueAnxieuse;
+
+            case HumorState.calme:
+                return settings.dialogueCalme;
+
+            case HumorState.colerique:
+                return settings.dialogueColerique;
+
+            default:
+                return settings.dialogueCalme;
+
+        }
     }
 }
