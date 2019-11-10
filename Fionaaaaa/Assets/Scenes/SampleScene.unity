@@ -589,7 +589,9 @@ MonoBehaviour:
   settingCalme: {fileID: 11400000, guid: 9b50c0a223a6c6642944a2591223623c, type: 2}
   settingColere: {fileID: 11400000, guid: e19668a3a5bcd1041ae9156af68ef3e7, type: 2}
   settingAnxieuse: {fileID: 11400000, guid: c4aec3ac83f156844908cc34567ec836, type: 2}
-  humeursScriptees: []
+  humeursScriptees:
+  - jour: 0
+    humeur: 0
   actualHumor: 3
 --- !u!1 &290145813
 GameObject:
