@@ -17,6 +17,10 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.instance.gameState == GameState.end)
+        {
+            return;
+        }
 
         if (Input.GetKeyDown(KeyCode.A))
         {

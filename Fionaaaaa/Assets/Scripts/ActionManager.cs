@@ -75,6 +75,8 @@ public class ActionManager : MonoBehaviour
                 break;
 
             case 3:
+                GameManager.instance.gameState = GameState.free;
+                GameManager.instance.gameTimer.continu();
                 GameManager.instance.addEnergyForNola(actualAction.settings.impactEnergie);
                 DialogueVisual.instance.EndDialogue();
                 DialogueVisual.instance.gameObject.SetActive(false);
@@ -91,8 +93,7 @@ public class ActionManager : MonoBehaviour
                 }
 
                 
-                GameManager.instance.gameState = GameState.free;
-                GameManager.instance.gameTimer.continu();
+
                 break;
 
             default:

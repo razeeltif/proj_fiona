@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     //[HideInInspector]
     public GameState gameState;
+    public Move Nola;
     public Text energieUI;
     public Text HumeurUI;
     public Text timeUI;
@@ -91,20 +92,27 @@ public class GameManager : MonoBehaviour
 
     private void DayFailed()
     {
-        Debug.Log("Nola is exhausted, end of the day");
-        HumorManager.instance.numberOfDaysPassed++;
-        SceneManager.LoadScene(0);
+        endOfDay("Nola is exhausted, end of the day");
     }
 
     public void DaySuccess()
     {
-        Debug.Log("Nola go to work \\o/");
+        endOfDay("Nola go to work \\o/");
+    }
+
+    private void endOfDay(string messageEndOfDay)
+    {
+        gameTimer.pause();
+        gameState = GameState.end;
+        Nola.GetComponent<Move>().stop();
+        Fade.instance.FadeText.text = messageEndOfDay;
+        HumorManager.instance.numberOfDaysPassed++;
+        Fade.instance.FadeIn();
     }
 
 
     private GameObject getInteractableGameObjectMouseOver()
     {
-
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 500) && (hit.collider.tag == "interactable" || hit.collider.tag == "dialogable" || hit.collider.tag == "actionable"))
@@ -121,8 +129,7 @@ public class GameManager : MonoBehaviour
         {
             if(child != obj.transform)
                 changeLayerForAllChildren(child.gameObject, layerName);
-        }
-        
+        }   
     }
 
     public bool testAction()
@@ -130,10 +137,5 @@ public class GameManager : MonoBehaviour
         float result = Random.Range(0, 100);
         return (result <= HumorManager.instance.getTauxReussite());
     }
-
-  /*  private void OnDestroy()
-    {
-        StopAllCoroutines();
-    }*/
 
 }

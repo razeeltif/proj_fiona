@@ -51,12 +51,12 @@ public class MemoryManager : MonoBehaviour
 
     void EndMemory()
     {
+        GameManager.instance.gameState = GameState.free;
+        GameManager.instance.gameTimer.continu();
         GameManager.instance.addEnergyForNola(getMemoriesEnergies().impactEnergie);
         DialogueVisual.instance.EndDialogue();
         DialogueVisual.instance.gameObject.SetActive(false);
         state = 0;
-        GameManager.instance.gameState = GameState.free;
-        GameManager.instance.gameTimer.continu();
     }
 
     memoriesEnergies getMemoriesEnergies()

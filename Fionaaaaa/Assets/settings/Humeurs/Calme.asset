@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a0b0503ad5e3245b5ec00f418f9835, type: 3}
   m_Name: Calme
   m_EditorClassIdentifier: 
-  nom: Calme
+  nom: 0
   energieDeDepart: 14
   tauxReussite: 75

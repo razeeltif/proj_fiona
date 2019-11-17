@@ -58,6 +58,10 @@ public class Move : MonoBehaviour
 
     }
 
+    public void stop()
+    {
+        navMesh.destination = this.transform.position;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
