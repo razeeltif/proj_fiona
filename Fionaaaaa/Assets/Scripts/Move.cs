@@ -34,7 +34,10 @@ public class Move : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out hit, 500))
         {
-            if(hit.collider.tag == "interactable")
+            pos = hit.point;
+            navMesh.destination = pos;
+
+            if (hit.collider.tag == "interactable")
             {
                 interactableObject = hit.collider.gameObject;
             }
@@ -51,10 +54,9 @@ public class Move : MonoBehaviour
                 interactableObject = null;
                 dialogableObject = null;
             }
-            pos = hit.point;
+            
         }
 
-        navMesh.destination = pos;
 
     }
 
@@ -81,6 +83,32 @@ public class Move : MonoBehaviour
         if(other.gameObject == actionableObject)
         {
             ActionManager.instance.BeginAction(actionableObject.GetComponent<Actionable>());
+            navMesh.destination = this.transform.position;
+            interactableObject = null;
+            dialogableObject = null;
+            actionableObject = null;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject == interactableObject)
+        {
+            MemoryManager.instance.BeginMemory(interactableObject.GetComponent<Interactable>().settings);
+            navMesh.destination = this.transform.position;
+            actionWhenTrigger(other.gameObject);
+        }
+
+        if (other.gameObject == dialogableObject)
+        {
+            DialogueManager.instance.BeginDialogue(dialogableObject.GetComponent<Dialogable>().settings);
+            actionWhenTrigger(other.gameObject);
+        }
+
+        if (other.gameObject == actionableObject)
+        {
+            ActionManager.instance.BeginAction(actionableObject.GetComponent<Actionable>());
+            navMesh.destination = this.transform.position;
             interactableObject = null;
             dialogableObject = null;
             actionableObject = null;
