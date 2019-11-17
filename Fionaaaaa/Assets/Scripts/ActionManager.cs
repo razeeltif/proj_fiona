@@ -83,7 +83,7 @@ public class ActionManager : MonoBehaviour
                 if (successAction)
                 {
                     listActionsAFaire.Remove(actualAction);
-                    actualAction.gameObject.tag = "Default";
+                    actualAction.gameObject.tag = "Untagged";
                     if(listActionsAFaire.Count == 0)
                     {
                         GameManager.instance.DaySuccess();

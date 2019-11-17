@@ -65,28 +65,30 @@ public class Move : MonoBehaviour
         {
             MemoryManager.instance.BeginMemory(interactableObject.GetComponent<Interactable>().settings);
             navMesh.destination = this.transform.position;
-            interactableObject = null;
-            dialogableObject = null;
-            actionableObject = null;
+            actionWhenTrigger(other.gameObject);
         }
 
         if(other.gameObject == dialogableObject)
         {
             DialogueManager.instance.BeginDialogue(dialogableObject.GetComponent<Dialogable>().settings);
-            navMesh.destination = this.transform.position;
-            interactableObject = null;
-            dialogableObject = null;
-            actionableObject = null;
+            actionWhenTrigger(other.gameObject);
         }
 
         if(other.gameObject == actionableObject)
         {
             ActionManager.instance.BeginAction(actionableObject.GetComponent<Actionable>());
-            navMesh.destination = this.transform.position;
             interactableObject = null;
             dialogableObject = null;
             actionableObject = null;
         }
+    }
+
+    private void actionWhenTrigger(GameObject disable)
+    {
+        interactableObject = null;
+        dialogableObject = null;
+        actionableObject = null;
+        disable.tag = "Untagged";
     }
 
 

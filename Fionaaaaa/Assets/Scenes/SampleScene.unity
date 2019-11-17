@@ -1554,7 +1554,7 @@ GameObject:
   - component: {fileID: 1043530406}
   - component: {fileID: 1043530404}
   m_Layer: 0
-  m_Name: DontDestroyOnLoad
+  m_Name: HumorDontDestOnLoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
