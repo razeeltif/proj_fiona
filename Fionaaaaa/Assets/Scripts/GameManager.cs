@@ -2,19 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
 
     static public GameManager instance;
 
-    [HideInInspector]
-    public GameState gameState = GameState.free;
+    //[HideInInspector]
+    public GameState gameState;
     public Text energieUI;
+    public Text HumeurUI;
+    public Text timeUI;
 
     GameObject interactableMOuseOverGameObject;
 
-    public int numberOfDaysPassed = 0;
+    public UTimer gameTimer;
+
+    public float timeForADay = 10f;
 
     private int energyNola = 0;
 
@@ -23,6 +28,7 @@ public class GameManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+            gameState = GameState.free;
         }
         else
         {
@@ -32,15 +38,21 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        gameTimer = UTimer.Initialize(timeForADay, this, DayFailed);
         DialogueVisual.instance.gameObject.SetActive(false);
+        HumorManager.instance.HumeurUI = HumeurUI;
         HumorManager.instance.ChangeHumor();
         addEnergyForNola(HumorManager.instance.getInitialHumorEnergy());
+        gameTimer.start();
     }
 
 
     // Update is called once per frame
     void Update()
     {
+
+        timeUI.text = "time left : " + (int)gameTimer.getTimeLeft();
+
         GameObject result = getInteractableGameObjectMouseOver();
         if (result != null)
         {
@@ -60,7 +72,7 @@ public class GameManager : MonoBehaviour
         {
             if(interactableMOuseOverGameObject != null)
             {
-                changeLayerForAllChildren(interactableMOuseOverGameObject, "Default");
+                changeLayerForAllChildren(interactableMOuseOverGameObject, "Default");  
                 interactableMOuseOverGameObject = null;
             }
         }
@@ -70,7 +82,7 @@ public class GameManager : MonoBehaviour
     public void addEnergyForNola(int addEnergy)
     {
         energyNola += addEnergy;
-        energieUI.text = "energy : " + energyNola;
+        energieUI.text = "Energy : " + energyNola;
         if(energyNola <= 0)
         {
             DayFailed();
@@ -80,6 +92,13 @@ public class GameManager : MonoBehaviour
     private void DayFailed()
     {
         Debug.Log("Nola is exhausted, end of the day");
+        HumorManager.instance.numberOfDaysPassed++;
+        SceneManager.LoadScene(0);
+    }
+
+    public void DaySuccess()
+    {
+        Debug.Log("Nola go to work \\o/");
     }
 
 
@@ -88,7 +107,7 @@ public class GameManager : MonoBehaviour
 
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 500) && (hit.collider.tag == "interactable" || hit.collider.tag == "dialogable"))
+        if (Physics.Raycast(ray, out hit, 500) && (hit.collider.tag == "interactable" || hit.collider.tag == "dialogable" || hit.collider.tag == "actionable"))
         {
             return hit.collider.gameObject;
         }
@@ -105,5 +124,16 @@ public class GameManager : MonoBehaviour
         }
         
     }
+
+    public bool testAction()
+    {
+        float result = Random.Range(0, 100);
+        return (result <= HumorManager.instance.getTauxReussite());
+    }
+
+  /*  private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }*/
 
 }

@@ -7,7 +7,8 @@ public class HumorManager : MonoBehaviour
 {
     static public HumorManager instance;
 
-    public Text UIHumeur;
+    [HideInInspector]
+    public Text HumeurUI;
 
     public HumorSettings settingCalme;
     public HumorSettings settingColere;
@@ -19,11 +20,14 @@ public class HumorManager : MonoBehaviour
 
     public HumorState actualHumor = HumorState.vide;
 
+    public int numberOfDaysPassed = 0;
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(this);
         }
         else
         {
@@ -37,7 +41,7 @@ public class HumorManager : MonoBehaviour
 // if n is scripted, we set the humor of the day to this scripted humor
         foreach(humeurScriptee script in humeursScriptees)
         {
-            if(script.jour == GameManager.instance.numberOfDaysPassed)
+            if(script.jour == numberOfDaysPassed)
             {
                 historiqueHumeur.Add(script.humeur);
                 setActualHumor(script.humeur);
@@ -51,7 +55,7 @@ public class HumorManager : MonoBehaviour
 // check if there is a n+1 scrypted humor, and remove it from the possibilities
         foreach(humeurScriptee script in humeursScriptees)
         {
-            if(script.jour == GameManager.instance.numberOfDaysPassed + 1)
+            if(script.jour == numberOfDaysPassed + 1)
             {
                 removeHumor(possibilities, script.humeur);
                 //possibilities.Remove(script.humeur);
@@ -166,19 +170,19 @@ public class HumorManager : MonoBehaviour
         switch (actualHumor)
         {
             case HumorState.anxieuse:
-                UIHumeur.text = "Humeur : anxieuse";
+                HumeurUI.text = "Humor : anxious";
                 break;
 
             case HumorState.calme:
-                UIHumeur.text = "Humeur : calme";
+                HumeurUI.text = "Humor : calm";
                 break;
 
             case HumorState.colerique:
-                UIHumeur.text = "Humeur : colérique";
+                HumeurUI.text = "Humor : angry";
                 break;
 
             default:
-                UIHumeur.text = "Humeur : bug";
+                HumeurUI.text = "Humor : bug";
                 break;
         }
     }

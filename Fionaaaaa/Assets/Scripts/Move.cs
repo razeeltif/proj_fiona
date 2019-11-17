@@ -13,6 +13,7 @@ public class Move : MonoBehaviour
 
     private GameObject interactableObject;
     private GameObject dialogableObject;
+    private GameObject actionableObject;
 
     private void Awake()
     {
@@ -41,6 +42,10 @@ public class Move : MonoBehaviour
             {
                 dialogableObject = hit.collider.gameObject;
             }
+            else if(hit.collider.tag == "actionable")
+            {
+                actionableObject = hit.collider.gameObject;
+            }
             else
             {
                 interactableObject = null;
@@ -62,6 +67,7 @@ public class Move : MonoBehaviour
             navMesh.destination = this.transform.position;
             interactableObject = null;
             dialogableObject = null;
+            actionableObject = null;
         }
 
         if(other.gameObject == dialogableObject)
@@ -70,6 +76,16 @@ public class Move : MonoBehaviour
             navMesh.destination = this.transform.position;
             interactableObject = null;
             dialogableObject = null;
+            actionableObject = null;
+        }
+
+        if(other.gameObject == actionableObject)
+        {
+            ActionManager.instance.BeginAction(actionableObject.GetComponent<Actionable>());
+            navMesh.destination = this.transform.position;
+            interactableObject = null;
+            dialogableObject = null;
+            actionableObject = null;
         }
     }
 

@@ -40,6 +40,7 @@ public class MemoryManager : MonoBehaviour
 
     public void BeginMemory(MemorySettings settings)
     {
+        GameManager.instance.gameTimer.pause();
         GameManager.instance.gameState = GameState.inMemory;
         this.settings = settings;
         DialogueVisual.instance.gameObject.SetActive(true);
@@ -55,6 +56,7 @@ public class MemoryManager : MonoBehaviour
         DialogueVisual.instance.gameObject.SetActive(false);
         state = 0;
         GameManager.instance.gameState = GameState.free;
+        GameManager.instance.gameTimer.continu();
     }
 
     memoriesEnergies getMemoriesEnergies()

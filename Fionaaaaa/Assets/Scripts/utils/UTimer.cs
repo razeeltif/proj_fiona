@@ -11,6 +11,7 @@ public class UTimer
     public bool hasBeenLaunched = false;
     private bool debug = false;
     private float cooldown = 0;
+    public float Cooldown => cooldown;
     private Coroutine instanceCoroutine;
     private MonoBehaviour mono;
     private UnityAction callbackFunction;
@@ -120,9 +121,9 @@ public class UTimer
 
     }
 
-    public float getCooldown()
+    public float getTimeLeft()
     {
-        return cooldown;
+        return time - cooldown;
     }
 
     public void setCooldown(float cooldown)

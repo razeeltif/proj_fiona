@@ -43,6 +43,7 @@ public class DialogueManager : MonoBehaviour
 
     public void BeginDialogue(DialogueSettings settings)
     {
+        GameManager.instance.gameTimer.pause();
         GameManager.instance.gameState = GameState.inChoice;
         this.settings = settings;
         DialogueVisual.instance.gameObject.SetActive(true);
@@ -70,6 +71,7 @@ public class DialogueManager : MonoBehaviour
         state = 0;
         indexChoice = -1;
         GameManager.instance.gameState = GameState.free;
+        GameManager.instance.gameTimer.continu();
     }
 
     List<reponse> getDialogueFromHumor()

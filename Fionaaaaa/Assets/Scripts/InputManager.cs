@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             HumorManager.instance.ChangeHumor();
-            GameManager.instance.numberOfDaysPassed++;
+            HumorManager.instance.numberOfDaysPassed++;
         }
         
 
@@ -33,7 +33,6 @@ public class InputManager : MonoBehaviour
             }
         }
 
-
         if(GameManager.instance.gameState == GameState.inDialogue)
         {
             if (Input.GetMouseButtonDown(0))
@@ -43,10 +42,19 @@ public class InputManager : MonoBehaviour
         }
 
         if(GameManager.instance.gameState == GameState.inMemory)
+        {
             if (Input.GetMouseButtonDown(0))
             {
                 MemoryManager.instance.OnClickMemory();
             }
+        }
 
+        if (GameManager.instance.gameState == GameState.inAction)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                ActionManager.instance.OnClickAction();
+            }
+        }
     }
 }
