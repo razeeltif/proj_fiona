@@ -170,19 +170,19 @@ public class HumorManager : MonoBehaviour
         switch (actualHumor)
         {
             case HumorState.anxieuse:
-                HumeurUI.text = "Humor : anxious";
+                HumeurUI.text = "Mood : anxious";
                 break;
 
             case HumorState.calme:
-                HumeurUI.text = "Humor : calm";
+                HumeurUI.text = "Mood : calm";
                 break;
 
             case HumorState.colerique:
-                HumeurUI.text = "Humor : angry";
+                HumeurUI.text = "Mood : angry";
                 break;
 
             default:
-                HumeurUI.text = "Humor : bug";
+                HumeurUI.text = "Mood : bug";
                 break;
         }
     }
