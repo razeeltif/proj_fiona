@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memoireCalme:
     memories:
-    - '"The holidays in Scotland, the picnic... and here, my mom''s cats!"'
+    - '"The holidays in Scotland, the picnic, and here..."'
+    - '"My mom''s cats!"'
+    - '"All just good memories."'
     - '"... I must stop wasting my time, I''ll end up late."'
     - Energy -1
     impactEnergie: -1
@@ -22,6 +24,8 @@ MonoBehaviour:
     memories:
     - '"Oh... I had forgotten that moment."'
     - '"Ah ah ah, that was a great day!"'
+    - '"It''s too easy to forget good memories."'
+    - '"I''m glad I put those pictures here."'
     - Energy +2
     impactEnergie: 2
   memoireColerique:

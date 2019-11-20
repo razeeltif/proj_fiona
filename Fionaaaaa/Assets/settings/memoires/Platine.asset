@@ -14,11 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memoireCalme:
     memories:
-    - A little bit of music to light up the day.
-    - It's so nice to listen to a vynil when the sun is rising.
-    - I feel like I am in my favourite movie.
-    - Minus Rooney Mara and the ghost cosplay, but... yeah.
-    impactEnergie: 0
+    - '"It''s so nice to listen to a vynil when the sun is rising."'
+    - Energy +1
+    impactEnergie: 1
   memoireAnxieuse:
     memories:
     - '"A little bit of music can ease the mind."'

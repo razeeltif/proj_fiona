@@ -22,7 +22,7 @@ MonoBehaviour:
   memoireAnxieuse:
     memories:
     - '"I spent too much money just on cushions."'
-    - '"I''m really not careful enough with money..."'
+    - '"I''m really not careful enough with my bank account..."'
     - Energy -1
     impactEnergie: -1
   memoireColerique:
