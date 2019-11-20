@@ -6,6 +6,7 @@ public class ActionManager : MonoBehaviour
 {
 
     static public ActionManager instance;
+    public GameSettings settings;
 
     public List<Actionable> listActionsAFaire;
 
@@ -65,11 +66,11 @@ public class ActionManager : MonoBehaviour
                 successAction = GameManager.instance.testAction();
                 if (successAction)
                 {
-                    DialogueVisual.instance.startNewSentence(true, "action successfully done.");
+                    DialogueVisual.instance.startNewSentence(true, settings.TextWhenActionSucessful, settings.colorTextWhenActionSucessful);
                 }
                 else
                 {
-                    DialogueVisual.instance.startNewSentence(true, "action failed.");
+                    DialogueVisual.instance.startNewSentence(true, settings.TextWhenActionFailed, settings.colorTextWhenActionFailed);
                 }
                 state++;
                 break;

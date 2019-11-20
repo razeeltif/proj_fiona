@@ -17,15 +17,14 @@ public class GameManager : MonoBehaviour
     public Text HumeurUI;
     public Text timeUI;
 
+    public GameSettings settings;
+
     public PostProcessVolume outlineCamera;
-    public Color colorInteractable;
-    public Color colorActionable;
 
     GameObject interactableMOuseOverGameObject;
 
     public UTimer gameTimer;
 
-    public float timeForADay = 10f;
 
     private int energyNola = 0;
 
@@ -44,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameTimer = UTimer.Initialize(timeForADay, this, DayFailed);
+        gameTimer = UTimer.Initialize(settings.timeForADay, this, DayFailed);
         DialogueVisual.instance.gameObject.SetActive(false);
         HumorManager.instance.HumeurUI = HumeurUI;
         HumorManager.instance.ChangeHumor();
@@ -73,11 +72,11 @@ public class GameManager : MonoBehaviour
                 PostProcessOutline pr = (PostProcessOutline)(outlineCamera.profile.settings[0]);
                 if(result.tag == "interactable")
                 {
-                    pr.color.value = colorInteractable;
+                    pr.color.value = settings.colorInteractable;
                 }
                 else
                 {
-                    pr.color.value = colorActionable;
+                    pr.color.value = settings.colorActionable;
                 }
                 changeLayerForAllChildren(interactableMOuseOverGameObject, "outline");
 
@@ -108,12 +107,12 @@ public class GameManager : MonoBehaviour
 
     private void DayFailed()
     {
-        endOfDay("Nola is exhausted, end of the day");
+        endOfDay(settings.TextDayFailure);
     }
 
     public void DaySuccess()
     {
-        endOfDay("Nola go to work \\o/");
+        endOfDay(settings.TextDaySuccess);
     }
 
     private void endOfDay(string messageEndOfDay)

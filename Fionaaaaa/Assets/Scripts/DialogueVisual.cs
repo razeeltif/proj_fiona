@@ -67,6 +67,15 @@ public class DialogueVisual : MonoBehaviour
 
     }
 
+    public void startNewSentence(bool isNola, string sentence, Color fancyColor)
+    {
+
+        checkTypeCoroutine();
+
+        AddNewTextToDialogueBox(isNola, sentence, fancyColor);
+
+    }
+
     private void checkTypeCoroutine()
     {
         // if the typing coroutine is running, we stop it and we directly write the end of the sentence
@@ -100,6 +109,31 @@ public class DialogueVisual : MonoBehaviour
 
         savedSentence = sentence;
     }
+
+    private void AddNewTextToDialogueBox(bool isNola, string sentence, Color fancyColor)
+    {
+        GameObject newText;
+        Vector3 pos;
+        if (isNola)
+        {
+            newText = Instantiate(NolaTextPrefab, this.gameObject.GetComponentInChildren<Image>().transform);
+            pos = NolaTextPrefab.GetComponent<RectTransform>().position;
+        }
+        else
+        {
+            newText = Instantiate(SolTextPrefab, this.gameObject.GetComponentInChildren<Image>().transform);
+            pos = SolTextPrefab.GetComponent<RectTransform>().position;
+        }
+        newText.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(pos.x, sentences.Count * -settings.espacementEntreChaqueLigne, pos.z);
+
+        sentences.Add(newText);
+
+        newText.GetComponent<TextMeshProUGUI>().color = fancyColor;
+        typeCoroutine = StartCoroutine(TypeSentence(newText.GetComponent<TextMeshProUGUI>(), sentence));
+
+        savedSentence = sentence;
+    }
+
 
     public void CreateChoices(List<reponse> listReponse)
     {

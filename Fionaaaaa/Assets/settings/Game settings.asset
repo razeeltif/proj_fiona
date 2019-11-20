@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db56c5d34342fa943a547a84b8595d77, type: 3}
+  m_Name: Game settings
+  m_EditorClassIdentifier: 
+  timeForADay: 20
+  colorInteractable: {r: 1, g: 1, b: 1, a: 1}
+  colorActionable: {r: 0, g: 0.6253741, b: 0.8962264, a: 1}
+  TextDaySuccess: Nola go to work \o/
+  TextDayFailure: Nola is exhausted, end of the day
+  colorTextWhenActionSucessful: {r: 0, g: 0.5, b: 0.13715112, a: 1}
+  colorTextWhenActionFailed: {r: 0.8207547, g: 0.0077254674, b: 0, a: 1}
+  TextWhenActionSucessful: action successfully done.
+  TextWhenActionFailed: action failed.
