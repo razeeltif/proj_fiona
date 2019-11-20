@@ -769,7 +769,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.07366214, y: 0.04333529, z: 0.051138535}
+  m_Size: {x: 0.07366214, y: 0.04333529, z: 0.03}
   m_Center: {x: 5.8680886e-16, y: 0.07514503, z: -1.3000757e-16}
 --- !u!65 &661685918
 BoxCollider:
@@ -782,7 +782,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.07366214, y: 0.03962938, z: 0.05685646}
+  m_Size: {x: 0.07366214, y: 0.03962938, z: 0.03}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &661685919
 MonoBehaviour:
@@ -3092,8 +3092,6 @@ GameObject:
   - component: {fileID: 7859272751629451920}
   - component: {fileID: 3395983580762183517}
   - component: {fileID: 15211602087567746}
-  - component: {fileID: 711874590518757341}
-  - component: {fileID: 711874590518757342}
   m_Layer: 0
   m_Name: bookshelf
   m_TagString: Untagged
@@ -3101,32 +3099,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &711874590518757341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711874590518757340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcf5b0855ab8cf047b9da796267e60d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settings: {fileID: 0}
---- !u!65 &711874590518757342
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711874590518757340}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.03, y: 0.06, z: 0.06}
-  m_Center: {x: 0.0000000037252903, y: 0.021457009, z: 0.023892589}
 --- !u!4 &819590716736307593
 Transform:
   m_ObjectHideFlags: 0
@@ -4567,8 +4539,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.04690819, y: 0.032934982, z: 0.021075213}
-  m_Center: {x: 0.00006987095, y: -0.00040433172, z: 0.00053760764}
+  m_Size: {x: 0.04690819, y: 0.01, z: 0.021075213}
+  m_Center: {x: 0.00006987095, y: -0.010404332, z: 0.00053760764}
 --- !u!114 &4716664187985316960
 MonoBehaviour:
   m_ObjectHideFlags: 0
