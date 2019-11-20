@@ -207,9 +207,9 @@ public class HumorManager : MonoBehaviour
         }
     }
 
-    private void OnValidate()
+   /* private void OnValidate()
     {
         UpdateUI();
-    }
+    }*/
 
 }
