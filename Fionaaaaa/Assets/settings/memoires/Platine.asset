@@ -21,18 +21,14 @@ MonoBehaviour:
     impactEnergie: 0
   memoireAnxieuse:
     memories:
-    - This turntable was so expensive.
-    - I was crazy to buy it...
-    - Well, maybe I could sell it when I will miss money.
-    - I hope it will interest someone...
-    impactEnergie: 0
+    - '"A little bit of music can ease the mind."'
+    - '"It feels good. I needed this today."'
+    - Energy +2
+    impactEnergie: 2
   memoireColerique:
     memories:
-    - This thing is no use.
-    - I was so stupid to buy it.
-    - Stupid sales offers, and stupid me to want to live like on Instagram. I wish
-      someone could burn Instagram.
-    - In the meanwhile, I can burn you, lying capitalistic turntable.
-    - '...Ok, enough petty revolution for today, I need to breath.'
-    - The turntable caused me no harm.
-    impactEnergie: 0
+    - '"This thing is no use."'
+    - '"I was so stupid to buy it."'
+    - '"I''d rather burn you, lying capitalistic turntable."'
+    - Energy -1
+    impactEnergie: -1

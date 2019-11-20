@@ -10,19 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e621cfd4b0460441a298737c80154fb, type: 3}
-  m_Name: torus memoire
+  m_Name: Windows
   m_EditorClassIdentifier: 
   memoireCalme:
     memories:
-    - C'est moche
-    impactEnergie: 0
+    - '"The weather seems nice today."'
+    - Energy +1
+    impactEnergie: 1
   memoireAnxieuse:
     memories:
-    - c'est toujours aussi moche
-    impactEnergie: 0
+    - '"Okay, Nola."'
+    - '"The outside world is not that bad."'
+    - '"You can go outside, you know it."'
+    - '"...Or maybe not."'
+    - Energy -1
+    impactEnergie: -1
   memoireColerique:
     memories:
-    - '...'
-    - '...'
-    - cheh
-    impactEnergie: 0
+    - '"Sun is out, but it seems cold outside."'
+    - '"So today I will freeze in my office. Wonderful."'
+    - Energy -1
+    impactEnergie: -1

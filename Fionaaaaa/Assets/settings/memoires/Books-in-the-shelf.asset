@@ -19,7 +19,7 @@ MonoBehaviour:
     impactEnergie: 2
   memoireAnxieuse:
     memories:
-    - '"I just can''t imagine I will ever be able to read all of them eventually."'
+    - '"I just can''t imagine I will ever be able to read all of them."'
     - Energy -2
     impactEnergie: -2
   memoireColerique:

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e621cfd4b0460441a298737c80154fb, type: 3}
+  m_Name: Couch-cushions
+  m_EditorClassIdentifier: 
+  memoireCalme:
+    memories:
+    - '"Hmm... This couche would need a new cushion I think."'
+    - '"Maybe a black one?"'
+    - '"...Oh crap, I lost time thinking about that."'
+    - Energy -1
+    impactEnergie: -1
+  memoireAnxieuse:
+    memories:
+    - '"I spent too much money just on cushions."'
+    - '"I''m really not careful enough with money..."'
+    - Energy -1
+    impactEnergie: -1
+  memoireColerique:
+    memories:
+    - '*Nola is petting the cushions*'
+    - '"...It''s soft."'
+    - '*Nola pat pat the cushion*'
+    - '"...It''s really soft."'
+    - '"That''s nice."'
+    - Energy +2
+    impactEnergie: 2

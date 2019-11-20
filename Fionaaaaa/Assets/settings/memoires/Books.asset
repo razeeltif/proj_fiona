@@ -14,23 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memoireCalme:
     memories:
-    - Sol offered me those books for my birthday.
-    - I still haven't finished them.
-    - But so far, they're good.
-    - Can't wait to pick them up.
-    impactEnergie: 0
+    - '"Sol offered me those books for my birthday."'
+    - '"He knows my tastes. That''s cute!"'
+    - Energy +2
+    impactEnergie: 2
   memoireAnxieuse:
     memories:
-    - It's been weeks I started to read them, and I'm still far from the end.
-    - That's ridiculous... I don't take time to read anymore...
-    - I waste so many times, watching series, doing nothing.
-    - What's the point to fantasize about any projet if I never take time to do what
-      really matters.
-    - Plus, I don't honour Sol's gifts... He will think I don't like them, at the
-      end.
-    impactEnergie: 0
+    - '"It''s been weeks I started to read them, and I''m still far from the end."'
+    - '"I don''t take time to read anymore..."'
+    - Energy -2
+    impactEnergie: -2
   memoireColerique:
     memories:
-    - Ah, they are still there I see.
-    - Of course if I don't tidy up the room, Sol won't do it neither.
-    impactEnergie: 0
+    - '"Ah, they are still there I see."'
+    - '"Of course if I don''t tidy up the room, Sol won''t do it neither."'
+    - Energy -1
+    impactEnergie: -1
