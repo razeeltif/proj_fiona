@@ -1693,6 +1693,9 @@ MonoBehaviour:
   energieUI: {fileID: 1499907086}
   HumeurUI: {fileID: 1159694241}
   timeUI: {fileID: 1630267865}
+  outlineCamera: {fileID: 1075157341}
+  colorInteractable: {r: 1, g: 1, b: 1, a: 1}
+  colorActionable: {r: 0, g: 0.4635908, b: 0.8018868, a: 1}
   timeForADay: 1000
 --- !u!4 &1441196764
 Transform:

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.PostProcessing;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class GameManager : MonoBehaviour
     public Text energieUI;
     public Text HumeurUI;
     public Text timeUI;
+
+    public PostProcessVolume outlineCamera;
+    public Color colorInteractable;
+    public Color colorActionable;
 
     GameObject interactableMOuseOverGameObject;
 
@@ -64,7 +69,18 @@ public class GameManager : MonoBehaviour
 
                 interactableMOuseOverGameObject = result;
 
+
+                PostProcessOutline pr = (PostProcessOutline)(outlineCamera.profile.settings[0]);
+                if(result.tag == "interactable")
+                {
+                    pr.color.value = colorInteractable;
+                }
+                else
+                {
+                    pr.color.value = colorActionable;
+                }
                 changeLayerForAllChildren(interactableMOuseOverGameObject, "outline");
+
 
             }
 
@@ -137,5 +153,6 @@ public class GameManager : MonoBehaviour
         float result = Random.Range(0, 100);
         return (result <= HumorManager.instance.getTauxReussite());
     }
-
+    
+   
 }

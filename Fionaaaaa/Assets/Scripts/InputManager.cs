@@ -1,18 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.Rendering.PostProcessing;
 
 public class InputManager : MonoBehaviour
 {
 
     public Move move;
+    //public PostProcessVolume cam;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -22,14 +18,20 @@ public class InputManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+      /*  if (Input.GetKeyDown(KeyCode.A))
         {
             HumorManager.instance.ChangeHumor();
             HumorManager.instance.numberOfDaysPassed++;
         }
-        
 
-        if(GameManager.instance.gameState == GameState.free)
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            PostProcessOutline pr = (PostProcessOutline)(cam.profile.settings[0]);
+            pr.color.value = Color.red;
+        }*/
+
+
+        if (GameManager.instance.gameState == GameState.free)
         {
             if (Input.GetMouseButtonDown(0))
             {
