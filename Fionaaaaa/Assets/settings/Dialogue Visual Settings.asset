@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7dc61f49f55e2e4e90f8ea9c7441658, type: 3}
   m_Name: Dialogue Visual Settings
   m_EditorClassIdentifier: 
-  couleurTexteNola: {r: 1, g: 0.8500008, b: 0, a: 1}
-  couleurTexteSol: {r: 1, g: 0, b: 0, a: 1}
+  couleurTexteNola: {r: 0.89411765, g: 0.8666667, b: 0.7882353, a: 1}
+  couleurTexteSol: {r: 0.27058825, g: 0.28627452, b: 0.3254902, a: 1}
   espacementEntreChaqueLigne: 30

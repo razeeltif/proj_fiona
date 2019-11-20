@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        timeUI.text = "time left : " + (int)gameTimer.getTimeLeft();
+        timeUI.text = "Time left : " + (int)gameTimer.getTimeLeft();
 
         GameObject result = getInteractableGameObjectMouseOver();
         if (result != null)

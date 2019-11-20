@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e621cfd4b0460441a298737c80154fb, type: 3}
+  m_Name: Books
+  m_EditorClassIdentifier: 
+  memoireCalme:
+    memories:
+    - Sol offered me those books for my birthday.
+    - I still haven't finished them.
+    - But so far, they're good.
+    - Can't wait to pick them up.
+    impactEnergie: 0
+  memoireAnxieuse:
+    memories:
+    - It's been weeks I started to read them, and I'm still far from the end.
+    - That's ridiculous... I don't take time to read anymore...
+    - I waste so many times, watching series, doing nothing.
+    - What's the point to fantasize about any projet if I never take time to do what
+      really matters.
+    - Plus, I don't honour Sol's gifts... He will think I don't like them, at the
+      end.
+    impactEnergie: 0
+  memoireColerique:
+    memories:
+    - Ah, they are still there I see.
+    - Of course if I don't tidy up the room, Sol won't do it neither.
+    impactEnergie: 0
