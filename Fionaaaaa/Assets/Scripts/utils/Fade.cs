@@ -69,10 +69,10 @@ public class Fade : MonoBehaviour
         flagCoroutine = false;
 
         yield return new WaitForSecondsRealtime(waitingTime);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
 
 
-        FadeOut();
+       // FadeOut();
     }
 
     IEnumerator FadeOutCoroutine()

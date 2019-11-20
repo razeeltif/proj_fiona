@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.PostProcessing;
 
 public class GameManager : MonoBehaviour
@@ -43,6 +42,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Fade.instance.alpha = 1;
+        Fade.instance.FadeOut();
         gameTimer = UTimer.Initialize(settings.timeForADay, this, DayFailed);
         DialogueVisual.instance.gameObject.SetActive(false);
         HumorManager.instance.HumeurUI = HumeurUI;
