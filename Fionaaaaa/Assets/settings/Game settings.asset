@@ -21,3 +21,6 @@ MonoBehaviour:
   colorTextWhenActionFailed: {r: 0.8207547, g: 0.0077254674, b: 0, a: 1}
   TextWhenActionSucessful: action successfully done.
   TextWhenActionFailed: action failed.
+  colorBackgroundCalm: {r: 1, g: 0.6509804, b: 0.61960787, a: 0}
+  colorBackgroundAngry: {r: 1, g: 0, b: 0, a: 0}
+  colorBackgroundAnxious: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}

@@ -14,6 +14,8 @@ public class HumorManager : MonoBehaviour
     public HumorSettings settingColere;
     public HumorSettings settingAnxieuse;
 
+    public GameSettings gameSettings;
+
     List<HumorState> historiqueHumeur = new List<HumorState>();
 
     public List<humeurScriptee> humeursScriptees;
@@ -171,14 +173,17 @@ public class HumorManager : MonoBehaviour
         {
             case HumorState.anxieuse:
                 HumeurUI.text = "Mood : anxious";
+                Camera.main.backgroundColor = gameSettings.colorBackgroundAnxious;
                 break;
 
             case HumorState.calme:
                 HumeurUI.text = "Mood : calm";
+                Camera.main.backgroundColor = gameSettings.colorBackgroundCalm;
                 break;
 
             case HumorState.colerique:
                 HumeurUI.text = "Mood : angry";
+                Camera.main.backgroundColor = gameSettings.colorBackgroundAngry;
                 break;
 
             default:

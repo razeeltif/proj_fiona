@@ -18,4 +18,9 @@ public class GameSettings : ScriptableObject
     public Color colorTextWhenActionFailed;
     public string TextWhenActionSucessful = "action successfully done.";
     public string TextWhenActionFailed = "action failed.";
+
+    [Header("mood background")]
+    public Color colorBackgroundCalm;
+    public Color colorBackgroundAngry;
+    public Color colorBackgroundAnxious;
 }

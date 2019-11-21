@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memoireCalme:
     memories:
-    - '"Hmm... This couche would need a new cushion I think."'
+    - '"Hmm... This couch would need a new cushion I think."'
     - '"Maybe a black one?"'
     - '"...Oh crap, I lost time thinking about that."'
     - Energy -1
