@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Calme
   m_EditorClassIdentifier: 
   nom: 0
-  energieDeDepart: 14
+  energieDeDepart: 16
   tauxReussite: 75

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Colerique
   m_EditorClassIdentifier: 
   nom: 1
-  energieDeDepart: 17
+  energieDeDepart: 20
   tauxReussite: 40

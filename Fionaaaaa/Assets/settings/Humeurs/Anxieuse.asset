@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Anxieuse
   m_EditorClassIdentifier: 
   nom: 2
-  energieDeDepart: 7
+  energieDeDepart: 10
   tauxReussite: 50

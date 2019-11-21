@@ -1063,6 +1063,10 @@ MonoBehaviour:
   humeursScriptees:
   - jour: 0
     humeur: 0
+  - jour: 1
+    humeur: 1
+  - jour: 2
+    humeur: 2
   actualHumor: 0
   numberOfDaysPassed: 0
 --- !u!4 &1043530406
